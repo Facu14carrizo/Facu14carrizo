@@ -3,7 +3,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Facu%20Carrizo&fontSize=70&animation=fadeIn" alt="Banner Facu Carrizo" />
 </div>
 
-<h1 align="center">¡Que onda! Soy <span style="color:#6f42c1;">Facu Carrizo</span> 👋</h1>
+<h1 align="center"><span style="color:#6f42c1;">Bajista🎸|Full Stack Dev💻|Actor🎭|Stargazing Scholar🔭🪐</span></h1>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/facu14carrizo/" target="_blank">
@@ -19,7 +19,7 @@
 
 ---
 
-## 🚀 Sobre mí
+## 🚀 Yo
 
 Soy un desarrollador **Full Stack**, apasionado por transformar ideas en soluciones digitales innovadoras y eficientes. Mi enfoque está en construir aplicaciones escalables y modernas, combinando las mejores prácticas de desarrollo con un diseño limpio y funcional.
 
@@ -73,7 +73,7 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 
 ---
 
-## 🌟 Destacado
+## 🌟 Legado
 
 <blockquote align="center" style="font-style: italic; color: #6f42c1;">
   "Transformando desafíos en código, y código en soluciones que impactan."  
@@ -82,7 +82,7 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 
 ---
 
-## 📈 Stats de GitHub
+
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Facu14carrizo&show_icons=true&theme=radical&count_private=true" alt="GitHub Stats" />
@@ -91,7 +91,7 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 
 ---
 
-## 🔥 GitHub Streak
+
 
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=Facu14carrizo&theme=radical" alt="GitHub Streak" />
