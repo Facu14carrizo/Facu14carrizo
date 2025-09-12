@@ -3,7 +3,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Facu%20Carrizo&fontSize=70&animation=fadeIn" alt="Banner Facu Carrizo" />
 </div>
 
-<h1 align="center"><span style="color:#6f42c1;">Bajista🎸|Full Stack Dev💻|Actor🎭|Stargazing Scholar🔭🪐</span></h1>
+<h1 align="center"><span style="color:#6f42c1;">Full Stack Dev 💻 Bajista 🎸 Actor🎭 Stargazing Scholar 🔭🪐</span></h1>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/facu14carrizo/" target="_blank">
