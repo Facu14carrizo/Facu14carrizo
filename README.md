@@ -1,9 +1,15 @@
-
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Facu%20Carrizo&fontSize=70&animation=fadeIn" alt="Banner Facu Carrizo" />
 </div>
 
-<h1 align="center"><span style="color:#6f42c1;">Full Stack Dev 💻 Bajista 🎸 Actor🎭 Stargazing Scholar 🔭🪐</span></h1>
+
+<div align="center">
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=500&color=9C51B6&center=true&vCenter=true&width=600&lines=Full+Stack+Developer;Apasionado+por+la+mejora+continua;Transformando+desaf%C3%ADos+en+c%C3%B3digo)](https://git.io/typing-svg)
+
+<br/>
+
+</div>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/facu14carrizo/" target="_blank">
@@ -19,6 +25,24 @@
 
 ---
 
+<div align="left">
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=6f42c130&height=48&width=420&text=Perfil&fontSize=22&fontColor=F2F2F2&fontAlignY=50&v=3" alt="PERFIL" />
+</div>
+
+<br/>
+
+<pre style="background:#0d1117; color:#e6edf3; padding:20px 24px; border-radius:16px; border:1px solid #30363d; display:block; font-family:'Fira Code', monospace; font-size:16px; line-height:1.6; box-shadow: 0 8px 32px rgba(0,0,0,0.45); margin-left:0;">
+<code style="font-family:inherit; font-size:16px;">{
+  "name": "Facu Carrizo",
+  "role": "Full Stack Developer",
+  "interests": ["Bajista 🎸", "Actor 🎭", "Stargazing 🔭"],
+  "philosophy": "Transformando desafíos en código, y código en soluciones que impactan.",
+  "mainTechs": ["Node.js", "React", "Java", "Spring Boot", "Python"]
+}</code>
+</pre>
+
+<br/>
+
 ## 🚀 Yo
 
 Soy un desarrollador **Full Stack**, apasionado por transformar ideas en soluciones digitales innovadoras y eficientes. Mi enfoque está en construir aplicaciones escalables y modernas, combinando las mejores prácticas de desarrollo con un diseño limpio y funcional.
@@ -29,25 +53,38 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 
 ---
 
-## 💡 Tecnologías y Herramientas
+<div align="left">
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=6f42c130&height=48&width=420&text=Stack%20%7C%20Herramientas&fontSize=22&fontColor=F2F2F2&fontAlignY=50&v=3" alt="STACK" />
+</div>
 
-<p align="center">
-  <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img alt="Node.js" src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img alt="React" src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img alt="Angular" src="https://img.shields.io/badge/-Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" />
-  <img alt=".NET" src="https://img.shields.io/badge/-.NET-512BD4?style=for-the-badge&logo=.net&logoColor=white" />
-  <img alt="Java" src="https://img.shields.io/badge/-Java-007396?style=for-the-badge&logo=java&logoColor=white" />
-  <img alt="Spring Boot" src="https://img.shields.io/badge/-Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" />
-  <img alt="Maven" src="https://img.shields.io/badge/-Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" />
-  <img alt="Python" src="https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img alt="Django" src="https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django&logoColor=white" />
-  <img alt="Flask" src="https://img.shields.io/badge/-Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
-  <img alt="Tkinter" src="https://img.shields.io/badge/-Tkinter-FF6F61?style=for-the-badge" />
-  <img alt="C++" src="https://img.shields.io/badge/-C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
-  <img alt="MySQL" src="https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
-  <img alt="Bootstrap" src="https://img.shields.io/badge/-Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" />
-</p>
+<br/>
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/JavaScript-0d1117?style=for-the-badge&logo=javascript&logoColor=F7DF1E&labelColor=161b22" alt="JavaScript" />
+<img src="https://img.shields.io/badge/Node.js-0d1117?style=for-the-badge&logo=node.js&logoColor=339933&labelColor=161b22" alt="Node.js" />
+<img src="https://img.shields.io/badge/React-0d1117?style=for-the-badge&logo=react&logoColor=61DAFB&labelColor=161b22" alt="React" />
+<img src="https://img.shields.io/badge/Angular-0d1117?style=for-the-badge&logo=angular&logoColor=DD0031&labelColor=161b22" alt="Angular" />
+
+<br/>
+
+<img src="https://img.shields.io/badge/Java-0d1117?style=for-the-badge&logo=openjdk&logoColor=ED8B00&labelColor=161b22" alt="Java" />
+<img src="https://img.shields.io/badge/Spring_Boot-0d1117?style=for-the-badge&logo=springboot&logoColor=6DB33F&labelColor=161b22" alt="Spring Boot" />
+<img src="https://img.shields.io/badge/Maven-0d1117?style=for-the-badge&logo=apachemaven&logoColor=C71A36&labelColor=161b22" alt="Maven" />
+
+<br/>
+
+<img src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=161b22" alt="Python" />
+<img src="https://img.shields.io/badge/Django-0d1117?style=for-the-badge&logo=django&logoColor=092E20&labelColor=161b22" alt="Django" />
+<img src="https://img.shields.io/badge/Flask-0d1117?style=for-the-badge&logo=flask&logoColor=white&labelColor=161b22" alt="Flask" />
+<img src="https://img.shields.io/badge/C%2B%2B-0d1117?style=for-the-badge&logo=c%2B%2B&logoColor=00599C&labelColor=161b22" alt="C++" />
+
+<br/>
+
+<img src="https://img.shields.io/badge/MySQL-0d1117?style=for-the-badge&logo=mysql&logoColor=4479A1&labelColor=161b22" alt="MySQL" />
+<img src="https://img.shields.io/badge/Bootstrap-0d1117?style=for-the-badge&logo=bootstrap&logoColor=7952B3&labelColor=161b22" alt="Bootstrap" />
+
+</div>
 
 ---
 
@@ -61,7 +98,6 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 | Node.js             | <img src="https://img.shields.io/badge/Level-Advanced-green" alt="Node.js Level"/> |
 | React               | <img src="https://img.shields.io/badge/Level-Advanced-green" alt="React Level"/> |
 | Angular             | <img src="https://img.shields.io/badge/Level-Intermediate-yellow" alt="Angular Level"/> |
-| .NET                | <img src="https://img.shields.io/badge/Level-Intermediate-yellow" alt=".NET Level"/> |
 | Java                | <img src="https://img.shields.io/badge/Level-Advanced-green" alt="Java Level"/> |
 | Spring Boot         | <img src="https://img.shields.io/badge/Level-Intermediate-yellow" alt="Spring Boot Level"/> |
 | Python              | <img src="https://img.shields.io/badge/Level-Intermediate-yellow" alt="Python Level"/> |
@@ -69,6 +105,31 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 | Flask               | <img src="https://img.shields.io/badge/Level-Beginner-orange" alt="Flask Level"/> |
 | C++                 | <img src="https://img.shields.io/badge/Level-Intermediate-yellow" alt="C++ Level"/> |
 
+</div>
+
+---
+
+<div align="left">
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=6f42c130&height=48&width=360&text=Github%20actividad&fontSize=22&fontColor=F2F2F2&fontAlignY=50&v=3" alt="GITHUB" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=Facu14carrizo&theme=react-dark&hide_border=true&area=true" alt="Activity Graph" />
+</div>
+
+<br/>
+
+<p align="center">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=Facu14carrizo&show_icons=true&theme=radical&count_private=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=Facu14carrizo&layout=compact&theme=radical" alt="Top Languages" />
+</p>
+
+<br/>
+
+<div align="center">
+  <img height="170" src="https://github-readme-streak-stats.herokuapp.com/?user=Facu14carrizo&theme=radical" alt="GitHub Streak" />
 </div>
 
 ---
@@ -81,24 +142,6 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 </blockquote>
 
 ---
-
-
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Facu14carrizo&show_icons=true&theme=radical&count_private=true" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Facu14carrizo&layout=compact&theme=radical" alt="Top Languages" />
-</p>
-
----
-
-
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Facu14carrizo&theme=radical" alt="GitHub Streak" />
-</p>
-
----
-
 
 ## 📫 Contacto
 
