@@ -115,10 +115,6 @@ Soy un desarrollador **Full Stack**, apasionado por transformar ideas en solucio
 
 <br/>
 
-<div align="center">
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=Facu14carrizo&theme=react-dark&hide_border=true&area=true" alt="Activity Graph" />
-</div>
-
 <br/>
 
 <p align="center">
