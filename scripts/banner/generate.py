@@ -18,13 +18,13 @@ from scipy.spatial.distance import cdist
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "assets/source/facu.png"
+SOURCE = ROOT / "assets/source/facu2.png"
 ASSETS = ROOT / "assets"
 LOGOS = Path(__file__).resolve().parent / "logos"
 DATA = Path(__file__).resolve().parent / "data"
 
 W, H = 1180, 610
-LOOP_SECONDS = 14.2
+LOOP_SECONDS = 17.5
 INTRO_SECONDS = 3.2
 TRAVELLER_COUNT = 900
 SEED = 314159
@@ -162,6 +162,25 @@ def make_logos() -> dict[str, Image.Image]:
     react = react_hi.resize((size, size), Image.Resampling.LANCZOS)
     logos["react"] = react
 
+    # WaveFrame Studio logo mark
+    wf_source = ROOT / "assets/source/waveframe.png"
+    if wf_source.exists():
+        wf_img = Image.open(wf_source).convert("RGBA")
+        wf_alpha = np.asarray(wf_img.getchannel("A"))
+        ys_wf, xs_wf = np.where(wf_alpha > 40)
+        if len(xs_wf) > 0:
+            wf_cropped = wf_img.crop((xs_wf.min(), ys_wf.min(), xs_wf.max() + 1, ys_wf.max() + 1))
+            target_dim = size - 40
+            scale_wf = min(target_dim / wf_cropped.width, target_dim / wf_cropped.height)
+            w_res, h_res = int(wf_cropped.width * scale_wf), int(wf_cropped.height * scale_wf)
+            wf_resized = wf_cropped.resize((w_res, h_res), Image.Resampling.LANCZOS)
+            wf_canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+            wf_canvas.paste(wf_resized, ((size - w_res) // 2, (size - h_res) // 2), wf_resized)
+            alpha_wf = np.asarray(wf_canvas.getchannel("A"))
+            sil_arr = np.zeros((size, size, 4), dtype=np.uint8)
+            sil_arr[:, :, 3] = alpha_wf
+            logos["waveframe"] = Image.fromarray(sil_arr, "RGBA")
+
     for name, image in logos.items():
         image.save(LOGOS / f"{name}.png", optimize=True)
     return logos
@@ -204,7 +223,7 @@ def portrait_points(theme: str, rng: np.random.Generator) -> np.ndarray:
         min_y, max_y = ys_a.min(), ys_a.max()
         sub_h = max_y - min_y
         target_aspect = 300.0 / 340.0
-        crop_bottom = min_y + int(sub_h * 0.95)
+        crop_bottom = min_y + int(sub_h * 0.65)
         crop_top = min_y
         crop_h = crop_bottom - crop_top
         crop_w = int(crop_h * target_aspect)
@@ -322,23 +341,25 @@ def render_svg(
     cube = transport(source, logo_points["cube"][:n])
     code = transport(cube, logo_points["code"][:n])
     react = transport(code, logo_points["react"][:n])
+    if "waveframe" in logo_points:
+        waveframe = transport(react, logo_points["waveframe"][:n])
+        frames = [source, source, cube, cube, code, code, react, react, waveframe, waveframe, source]
+        times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2, 16.2, 17.5]
+        opacity_values = "0;0;1;1;1;1;1;1;1;1;0"
+    else:
+        frames = [source, source, cube, cube, code, code, react, react, source]
+        times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2]
+        opacity_values = "0;0;1;1;1;1;1;1;0"
 
-    # Explicit uneven phase boundaries: 3.0 portrait, 2.0 per logo,
-    # and four 1.3 transitions = 14.2 seconds.
-    times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2]
     key_times = ";".join(num(v / LOOP_SECONDS) for v in times)
-    # Returning each traveller to its exact starting portrait coordinate keeps
-    # the repeat boundary seamless. All logo-to-logo morphs use optimal transport.
-    frames = [source, source, cube, cube, code, code, react, react, source]
-    opacity_values = "0;0;1;1;1;1;1;1;0"
 
     parts: list[str] = [
         '<svg xmlns="http://www.w3.org/2000/svg" '
         f'width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" '
         'aria-labelledby="title desc">',
-        "<title id=\"title\">Ramiro's live system profile</title>",
+        "<title id=\"title\">Facu's live system profile</title>",
         '<desc id="desc">Animated terminal profile with a dithered portrait and '
-        "3D wireframe cube, code, and React silhouettes.</desc>",
+        "3D wireframe cube, code, React, and WaveFrame silhouettes.</desc>",
         "<defs>",
         '<filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">'
         f'<feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="{t["shadow"]}" '
@@ -455,7 +476,7 @@ def render_svg(
             f'stroke="{t["chrome"]}"/>',
             f'<text x="1055" y="111" text-anchor="middle" fill="{t["chrome"]}" '
             'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="14" '
-            'font-weight="700">@ramirolacci</text>',
+            'font-weight="700">@facu14carrizo</text>',
         ]
     )
 
