@@ -1,0 +1,21 @@
+{
+  "_comment": "Featured repos, in README order. Stars/forks/language come live from the API on every run; the description here overrides the repo's GitHub description.",
+  "projects": [
+    {
+      "repo": "Solar-System",
+      "description": "Simulador interactivo 3D del sistema solar con Three.js y React Three Fiber, con efectos cinematográficos de post-procesamiento (Bloom/Vignette)."
+    },
+    {
+      "repo": "PCGamers_Website-REMASTERED",
+      "description": "GamerTech: E-commerce profesional en React y TypeScript para hardware y componentes gamer, con diseño responsivo y catálogo interactivo."
+    },
+    {
+      "repo": "Simples.Mortales.Band",
+      "description": "Plataforma web oficial de la banda Simples Mortales con tecnología moderna, audio streaming, visualización de tracks e interactividad 3D."
+    },
+    {
+      "repo": "WaveBarberShop",
+      "description": "Plataforma web integral y responsiva diseñada para optimizar la gestión y reserva de turnos en barberías en tiempo real."
+    }
+  ]
+}
