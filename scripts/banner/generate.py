@@ -219,15 +219,17 @@ def portrait_points(theme: str, rng: np.random.Generator) -> np.ndarray:
     alpha_arr = np.asarray(source.getchannel("A"))
     ys_a, xs_a = np.where(alpha_arr > 20)
     if len(xs_a) > 0:
-        min_x, max_x = xs_a.min(), xs_a.max()
-        min_y, max_y = ys_a.min(), ys_a.max()
-        sub_h = max_y - min_y
+        # Focus on head, face, and chest:
+        # Find horizontal bounds of the head/upper body (y < 800)
+        upper_mask = (alpha_arr > 20) & (np.arange(source.height)[:, None] < 800)
+        ys_u, xs_u = np.where(upper_mask)
+        center_x = (xs_u.min() + xs_u.max()) // 2 if len(xs_u) else (xs_a.min() + xs_a.max()) // 2
+        
+        crop_top = ys_a.min()
+        crop_h = 760
+        crop_bottom = min(source.height, crop_top + crop_h)
         target_aspect = 300.0 / 340.0
-        crop_bottom = min_y + int(sub_h * 0.65)
-        crop_top = min_y
-        crop_h = crop_bottom - crop_top
         crop_w = int(crop_h * target_aspect)
-        center_x = (min_x + max_x) // 2
         crop_left = max(0, center_x - crop_w // 2)
         crop_right = min(source.width, crop_left + crop_w)
         crop = source.crop((crop_left, crop_top, crop_right, crop_bottom)).resize((300, 340), Image.Resampling.LANCZOS)
@@ -548,7 +550,7 @@ def main() -> None:
         for name, points in sampled.items():
             np.save(DATA / f"{name}-{theme}.npy", points)
         svg = render_svg(theme, portraits[theme], sampled, rng)
-        output = ASSETS / f"banner-{theme}.v9.svg"
+        output = ASSETS / f"banner-{theme}.v10.svg"
         output.write_text(svg, encoding="utf-8")
         byte_size = output.stat().st_size
         print(
