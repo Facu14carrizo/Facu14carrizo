@@ -2,9 +2,9 @@
 
 <!-- BANNER - terminal profile.sh --live -->
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="assets/banner-dark.v13.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.v13.svg">
-  <img src="assets/banner-dark.v13.svg" width="100%" alt="profile.sh --live">
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/banner-dark.v14.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.v14.svg">
+  <img src="assets/banner-dark.v14.svg" width="100%" alt="profile.sh --live">
 </picture>
 
 <br>
