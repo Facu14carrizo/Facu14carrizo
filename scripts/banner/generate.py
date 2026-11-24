@@ -24,7 +24,7 @@ LOGOS = Path(__file__).resolve().parent / "logos"
 DATA = Path(__file__).resolve().parent / "data"
 
 W, H = 1180, 610
-LOOP_SECONDS = 17.5
+LOOP_SECONDS = 14.2
 INTRO_SECONDS = 3.2
 TRAVELLER_COUNT = 900
 SEED = 314159
@@ -346,22 +346,17 @@ def render_svg(
     t = THEMES[theme_name]
     n = min(TRAVELLER_COUNT, len(portrait))
     source = portrait[rng.choice(len(portrait), n, replace=False)]
-    cube = transport(source, logo_points["cube"][:n])
-    code = transport(cube, logo_points["code"][:n])
-    react = transport(code, logo_points["react"][:n])
-    if "waveframe" in logo_points:
-        waveframe = transport(react, logo_points["waveframe"][:n])
-        frames = [source, source, cube, cube, code, code, react, react, waveframe, waveframe, source]
-        times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2, 16.2, 17.5]
-        opacity_values = "0;0;1;1;1;1;1;1;1;1;0"
-        drift_values_tpl = "0 0;0 0;{dx} {dy};{dx} {dy};0 0;0 0;0 0;0 0;0 0;0 0;0 0"
-        drift_opacities = ".94;.94;0;0;0;0;0;0;0;0;.94"
-    else:
-        frames = [source, source, cube, cube, code, code, react, react, source]
-        times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2]
-        opacity_values = "0;0;1;1;1;1;1;1;0"
-        drift_values_tpl = "0 0;0 0;{dx} {dy};{dx} {dy};0 0;0 0;0 0;0 0;0 0"
-        drift_opacities = ".94;.94;0;0;0;0;0;0;.94"
+    waveframe = transport(source, logo_points["waveframe"][:n])
+    react = transport(waveframe, logo_points["react"][:n])
+    cube = transport(react, logo_points["cube"][:n])
+
+    # Sequence: portrait (3.0s) -> waveframe (2.0s) -> react (2.0s) -> cube (2.0s) -> portrait
+    # Transitions: 1.3s each. Total = 3.0 + 1.3 + 2.0 + 1.3 + 2.0 + 1.3 + 2.0 + 1.3 = 14.2s
+    frames = [source, source, waveframe, waveframe, react, react, cube, cube, source]
+    times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2]
+    opacity_values = "0;0;1;1;1;1;1;1;0"
+    drift_values_tpl = "0 0;0 0;{dx} {dy};{dx} {dy};0 0;0 0;0 0;0 0;0 0"
+    drift_opacities = ".94;.94;0;0;0;0;0;0;.94"
 
     key_times = format_key_times(times, LOOP_SECONDS)
 
@@ -370,8 +365,8 @@ def render_svg(
         f'width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" '
         'aria-labelledby="title desc">',
         "<title id=\"title\">Facu's live system profile</title>",
-        '<desc id="desc">Animated terminal profile with a dithered portrait and '
-        "3D wireframe cube, code, React, and WaveFrame silhouettes.</desc>",
+        '<desc id="desc">Animated terminal profile with a dithered portrait, '
+        "WaveFrame, React, and 3D wireframe cube silhouettes.</desc>",
         "<defs>",
         '<filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">'
         f'<feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="{t["shadow"]}" '
@@ -409,8 +404,8 @@ def render_svg(
         '<g opacity="1">',
     ]
 
-    # Dense portrait drift: 94 independently noisy bands moving toward cube's centroid.
-    cube_centroid = cube.mean(axis=0)
+    # Dense portrait drift: 94 independently noisy bands moving toward target centroid.
+    target_centroid = waveframe.mean(axis=0)
     band_ids = rng.integers(0, 94, size=len(portrait))
     noise = rng.normal(0, 4, size=(94, 2))
     for band in range(94):
@@ -418,7 +413,7 @@ def render_svg(
         if not len(pts):
             continue
         centroid = pts.mean(axis=0)
-        delta = (cube_centroid - centroid) * 0.18 + noise[band]
+        delta = (target_centroid - centroid) * 0.18 + noise[band]
         d = point_path(pts)
         drift_vals = drift_values_tpl.format(dx=num(delta[0]), dy=num(delta[1]))
         parts.append(
