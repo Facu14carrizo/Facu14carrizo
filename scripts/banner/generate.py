@@ -218,23 +218,24 @@ def portrait_points(theme: str, rng: np.random.Generator) -> np.ndarray:
     source = Image.open(src_path).convert("RGBA")
     alpha_arr = np.asarray(source.getchannel("A"))
     ys_a, xs_a = np.where(alpha_arr > 20)
+    target_w, target_h = 300, 340
     if len(xs_a) > 0:
-        # Focus on head, face, and chest:
-        # Find horizontal bounds of the head/upper body (y < 800)
-        upper_mask = (alpha_arr > 20) & (np.arange(source.height)[:, None] < 800)
-        ys_u, xs_u = np.where(upper_mask)
-        center_x = (xs_u.min() + xs_u.max()) // 2 if len(xs_u) else (xs_a.min() + xs_a.max()) // 2
+        # Full subject bounding box: fit the entire silhouette without cutting off
+        min_x, max_x = xs_a.min(), xs_a.max()
+        min_y, max_y = ys_a.min(), ys_a.max()
+        cropped = source.crop((min_x, min_y, max_x + 1, max_y + 1))
         
-        crop_top = ys_a.min()
-        crop_h = 760
-        crop_bottom = min(source.height, crop_top + crop_h)
-        target_aspect = 300.0 / 340.0
-        crop_w = int(crop_h * target_aspect)
-        crop_left = max(0, center_x - crop_w // 2)
-        crop_right = min(source.width, crop_left + crop_w)
-        crop = source.crop((crop_left, crop_top, crop_right, crop_bottom)).resize((300, 340), Image.Resampling.LANCZOS)
+        scale = min(target_w / cropped.width, target_h / cropped.height)
+        new_w = int(cropped.width * scale)
+        new_h = int(cropped.height * scale)
+        resized = cropped.resize((new_w, new_h), Image.Resampling.LANCZOS)
+        
+        crop = Image.new("RGBA", (target_w, target_h), (0, 0, 0, 0))
+        offset_x = (target_w - new_w) // 2
+        offset_y = (target_h - new_h) // 2
+        crop.paste(resized, (offset_x, offset_y), resized)
     else:
-        crop = source.resize((300, 340), Image.Resampling.LANCZOS)
+        crop = source.resize((target_w, target_h), Image.Resampling.LANCZOS)
     rgb = crop.convert("RGB")
     alpha = np.asarray(crop.getchannel("A"), dtype=np.float32) / 255.0
 
@@ -550,7 +551,7 @@ def main() -> None:
         for name, points in sampled.items():
             np.save(DATA / f"{name}-{theme}.npy", points)
         svg = render_svg(theme, portraits[theme], sampled, rng)
-        output = ASSETS / f"banner-{theme}.v10.svg"
+        output = ASSETS / f"banner-{theme}.v11.svg"
         output.write_text(svg, encoding="utf-8")
         byte_size = output.stat().st_size
         print(
