@@ -100,18 +100,18 @@ Passionate about technology, cold coffee, and astronomy 🚀📡🪐. I focus on
 <td width="50%" align="center" valign="middle">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Solar-System-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-Solar-System-light.svg">
-  <img src="assets/card-Solar-System-dark.svg" width="400" alt="Solar System">
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Mi-Gusto-x-Doritos-Flamin-Hot-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-Mi-Gusto-x-Doritos-Flamin-Hot-light.svg">
+  <img src="assets/card-Mi-Gusto-x-Doritos-Flamin-Hot-dark.svg" width="400" alt="Mi Gusto x Doritos Flamin Hot">
 </picture>
 
 </td>
 <td width="50%" align="center" valign="middle">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-PCGamers_Website-REMASTERED-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-PCGamers_Website-REMASTERED-light.svg">
-  <img src="assets/card-PCGamers_Website-REMASTERED-dark.svg" width="400" alt="PC Gamers Website">
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-AURA-SocialNetwork-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-AURA-SocialNetwork-light.svg">
+  <img src="assets/card-AURA-SocialNetwork-dark.svg" width="400" alt="AURA Social Network">
 </picture>
 
 </td>
@@ -120,18 +120,18 @@ Passionate about technology, cold coffee, and astronomy 🚀📡🪐. I focus on
 <td width="50%" align="center" valign="middle">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Simples.Mortales.Band-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-Simples.Mortales.Band-light.svg">
-  <img src="assets/card-Simples.Mortales.Band-dark.svg" width="400" alt="Simples Mortales Band">
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Neural-Flymind-Lab-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-Neural-Flymind-Lab-light.svg">
+  <img src="assets/card-Neural-Flymind-Lab-dark.svg" width="400" alt="Neural Flymind Lab">
 </picture>
 
 </td>
 <td width="50%" align="center" valign="middle">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-WaveBarberShop-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-WaveBarberShop-light.svg">
-  <img src="assets/card-WaveBarberShop-dark.svg" width="400" alt="WaveBarberShop">
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Wave-Racing-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-Wave-Racing-light.svg">
+  <img src="assets/card-Wave-Racing-dark.svg" width="400" alt="Wave Racing">
 </picture>
 
 </td>

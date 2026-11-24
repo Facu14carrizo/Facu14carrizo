@@ -334,20 +334,18 @@ def main(argv=None):
 
     for entry in wanted:
         src = by_name.get(entry["repo"].lower())
-        if not src:
-            print(f"  !! {entry['repo']} not found on the account, skipped")
-            continue
+        repo_name = entry["repo"]
         card = {
-            "name": src["name"],
-            "description": entry.get("description") or src.get("description"),
-            "language": entry.get("language") or src.get("language"),
-            "stars": src["stargazers_count"],
-            "forks": src["forks_count"],
+            "name": src["name"] if src else repo_name,
+            "description": entry.get("description") or (src.get("description") if src else ""),
+            "language": entry.get("language") or (src.get("language") if src else None),
+            "stars": src["stargazers_count"] if src else entry.get("stars", 0),
+            "forks": src["forks_count"] if src else entry.get("forks", 0),
         }
         for theme in ("dark", "light"):
-            dest = args.out / f"card-{src['name']}-{theme}.svg"
+            dest = args.out / f"card-{card['name']}-{theme}.svg"
             dest.write_text(render_repo(card, theme), encoding="utf-8")
-        print(f"wrote card-{src['name']}-*.svg  "
+        print(f"wrote card-{card['name']}-*.svg  "
               f"({card['stars']}star {card['forks']}fork {card['language']})")
 
 

@@ -2,20 +2,24 @@
   "_comment": "Featured repos, in README order. Stars/forks/language come live from the API on every run; the description here overrides the repo's GitHub description.",
   "projects": [
     {
-      "repo": "Solar-System",
-      "description": "Simulador interactivo 3D del sistema solar con Three.js y React Three Fiber, con efectos cinematográficos de post-procesamiento (Bloom/Vignette)."
+      "repo": "Mi-Gusto-x-Doritos-Flamin-Hot",
+      "description": "Web app promocional responsive para Mi Gusto sobre el lanzamiento de la empanada CRUNCHY, con animaciones, modelo 3D, efectos visuales y medición avanzada.",
+      "language": "TypeScript"
     },
     {
-      "repo": "PCGamers_Website-REMASTERED",
-      "description": "GamerTech: E-commerce profesional en React y TypeScript para hardware y componentes gamer, con diseño responsivo y catálogo interactivo."
+      "repo": "AURA-SocialNetwork",
+      "description": "Plataforma de red social moderna desarrollada con TypeScript y arquitectura escalable, integrando feeds interactivos y diseño UI de vanguardia.",
+      "language": "TypeScript"
     },
     {
-      "repo": "Simples.Mortales.Band",
-      "description": "Plataforma web oficial de la banda Simples Mortales con tecnología moderna, audio streaming, visualización de tracks e interactividad 3D."
+      "repo": "Neural-Flymind-Lab",
+      "description": "Laboratorio interactivo de simulación y experimentos neuronales en JavaScript, enfocado en modelos biomiméticos y visualización de redes.",
+      "language": "JavaScript"
     },
     {
-      "repo": "WaveBarberShop",
-      "description": "Plataforma web integral y responsiva diseñada para optimizar la gestión y reserva de turnos en barberías en tiempo real."
+      "repo": "Wave-Racing",
+      "description": "Juego interactivo de carreras desarrollado por WaveFrame Studio con físicas en tiempo real, renderizado dinámico en Canvas y controles responsivos.",
+      "language": "JavaScript"
     }
   ]
 }
