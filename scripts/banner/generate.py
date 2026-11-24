@@ -329,6 +329,14 @@ def animate_values(points: list[np.ndarray], index: int) -> str:
     return ";".join(f"{num(p[index, 0])} {num(p[index, 1])}" for p in points)
 
 
+def format_key_times(t_list: list[float], loop_s: float) -> str:
+    """Format strictly monotonically increasing keyTimes to 4 decimal places."""
+    return ";".join(
+        f"{v / loop_s:.4f}".rstrip("0").rstrip(".") if v > 0 else "0"
+        for v in t_list
+    )
+
+
 def render_svg(
     theme_name: str,
     portrait: np.ndarray,
@@ -346,12 +354,16 @@ def render_svg(
         frames = [source, source, cube, cube, code, code, react, react, waveframe, waveframe, source]
         times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2, 16.2, 17.5]
         opacity_values = "0;0;1;1;1;1;1;1;1;1;0"
+        drift_values_tpl = "0 0;0 0;{dx} {dy};{dx} {dy};0 0;0 0;0 0;0 0;0 0;0 0;0 0"
+        drift_opacities = ".94;.94;0;0;0;0;0;0;0;0;.94"
     else:
         frames = [source, source, cube, cube, code, code, react, react, source]
         times = [0, 3.0, 4.3, 6.3, 7.6, 9.6, 10.9, 12.9, 14.2]
         opacity_values = "0;0;1;1;1;1;1;1;0"
+        drift_values_tpl = "0 0;0 0;{dx} {dy};{dx} {dy};0 0;0 0;0 0;0 0;0 0"
+        drift_opacities = ".94;.94;0;0;0;0;0;0;.94"
 
-    key_times = ";".join(num(v / LOOP_SECONDS) for v in times)
+    key_times = format_key_times(times, LOOP_SECONDS)
 
     parts: list[str] = [
         '<svg xmlns="http://www.w3.org/2000/svg" '
@@ -408,16 +420,16 @@ def render_svg(
         centroid = pts.mean(axis=0)
         delta = (cube_centroid - centroid) * 0.18 + noise[band]
         d = point_path(pts)
+        drift_vals = drift_values_tpl.format(dx=num(delta[0]), dy=num(delta[1]))
         parts.append(
             f'<path d="{d}" fill="none" stroke="{t["portrait"]}" stroke-width="1" '
             'opacity=".94">'
             f'<animateTransform attributeName="transform" type="translate" begin="{INTRO_SECONDS}s" '
             f'dur="{LOOP_SECONDS}s" repeatCount="indefinite" calcMode="linear" '
-            f'keyTimes="{key_times}" values="0 0;0 0;{num(delta[0])} {num(delta[1])};'
-            f'{num(delta[0])} {num(delta[1])};0 0;0 0;0 0;0 0;0 0"/>'
+            f'keyTimes="{key_times}" values="{drift_vals}"/>'
             f'<animate attributeName="opacity" begin="{INTRO_SECONDS}s" dur="{LOOP_SECONDS}s" '
             f'repeatCount="indefinite" keyTimes="{key_times}" '
-            'values=".94;.94;0;0;0;0;0;0;.94"/></path>'
+            f'values="{drift_opacities}"/></path>'
         )
 
     # Optimal-transport travellers, represented as tiny path squares (never glyphs).
